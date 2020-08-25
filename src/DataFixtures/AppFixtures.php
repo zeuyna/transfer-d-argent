@@ -53,26 +53,25 @@ class AppFixtures extends Fixture
         $manager->persist($superAdmin);
 
         for ($i=0; $i < 20; $i++) {
-            $admin = new User();
-            $admin->setFirstname($faker->firstName());
-            $admin->setLastname($faker->lastName());
-            $admin->setEmail($faker->email());
-            $admin->setTelephone($faker->phoneNumber());
-            $admin->setRole($roleSupAdmin);
-            $admin->setPassword($this->encoder->encodePassword($admin, "admin"));
-            $manager->persist($admin);
+            $admin[$i] = new User();
+            $admin[$i]->setFirstname($faker->firstName());
+            $admin[$i]->setLastname($faker->lastName());
+            $admin[$i]->setEmail($faker->email());
+            $admin[$i]->setTelephone($faker->phoneNumber());
+            $admin[$i]->setRole($roleSupAdmin);
+            $admin[$i]->setPassword($this->encoder->encodePassword($admin[$i], "admin"));
+            $manager->persist($admin[$i]);
 
-
-            $cashier = new User();
-            $cashier->setFirstname($faker->firstName());
-            $cashier->setLastname($faker->lastName());
-            $cashier->setEmail($faker->email());
-            $cashier->setTelephone($faker->phoneNumber());
-            $cashier->setRole($roleSupAdmin);
-            $cashier->setPassword($this->encoder->encodePassword($cashier, "cashier"));
-            $manager->persist($cashier);
+            $cashier[$i] = new User();
+            $cashier[$i]->setFirstname($faker->firstName());
+            $cashier[$i]->setLastname($faker->lastName());
+            $cashier[$i]->setEmail($faker->email());
+            $cashier[$i]->setTelephone($faker->phoneNumber());
+            $cashier[$i]->setRole($roleSupAdmin);
+            $cashier[$i]->setPassword($this->encoder->encodePassword($cashier[$i], "cashier"));
+            $manager->persist($cashier[$i]);
         }
-        
+
         $manager->flush();
     }
 }
