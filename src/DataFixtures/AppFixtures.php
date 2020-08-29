@@ -58,7 +58,7 @@ class AppFixtures extends Fixture
             $admin[$i]->setLastname($faker->lastName());
             $admin[$i]->setEmail($faker->email());
             $admin[$i]->setTelephone($faker->phoneNumber());
-            $admin[$i]->setRole($roleSupAdmin);
+            $admin[$i]->setRole($roleAdmin);
             $admin[$i]->setPassword($this->encoder->encodePassword($admin[$i], "admin"));
             $manager->persist($admin[$i]);
 
@@ -67,7 +67,7 @@ class AppFixtures extends Fixture
             $cashier[$i]->setLastname($faker->lastName());
             $cashier[$i]->setEmail($faker->email());
             $cashier[$i]->setTelephone($faker->phoneNumber());
-            $cashier[$i]->setRole($roleSupAdmin);
+            $cashier[$i]->setRole($roleCashier);
             $cashier[$i]->setPassword($this->encoder->encodePassword($cashier[$i], "cashier"));
             $manager->persist($cashier[$i]);
         }
